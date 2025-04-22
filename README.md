@@ -7,11 +7,11 @@ This project fetches, filters, compares eBird media ratings, and sends email not
 ```
 ebird_media_ratings_docker
 ├── src
-│   ├── ebird_media_ratings.py  # Main logic for fetching and processing eBird media ratings
+│   ├── ebird_media_ratings.py   # Main logic for fetching and processing eBird media ratings
 ├── Dockerfile                   # Instructions to build the Docker image
 ├── requirements.txt             # Python dependencies required for the project
 ├── cronjob
-│   └── crontab.txt             # Cron job configuration for scheduling the Docker container
+│   └── crontab.txt              # Cron job configuration for scheduling the Docker container
 ├── data                         # Directory for storing CSV data files (created inside the container)
 └── README.md                    # Documentation for the project
 ```
@@ -24,17 +24,28 @@ ebird_media_ratings_docker
    cd ebird_media_ratings_docker
    ```
 
-2. **Build the Docker image:**
+2. **Configure the `config.json` file:**
+   Update the following fields with your credentials:
+     ```json
+     {
+         "user_id": "YOUR_EBIRD_USER_ID",
+         "from_email": "YOUR_EMAIL_ADDRESS",
+         "to_email": "RECIPIENT_EMAIL_ADDRESS",
+         "email_password": "YOUR_EMAIL_PASSWORD",
+         "cookie": "YOUR_EBIRD_COOKIE"
+     }
+     ```
+
+3. **Build the Docker image:**
    ```
    docker build -t ebird_media_ratings .
    ```
 
-3. **Run the Docker container:**
+4. **Run the Docker container:**
    ```
    docker run --rm ebird_media_ratings
    ```
 
-   This will execute the script inside the container and save the data files in the container's `/app/data` directory.
 
 ## Usage
 

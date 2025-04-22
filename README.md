@@ -20,7 +20,7 @@ ebird_media_ratings_docker
 
 1. **Clone the repository:**
    ```
-   git clone <repository-url>
+   git clone https://github.com/m3lmark/ebird_media_rating_emails_docker.git
    cd ebird_media_ratings_docker
    ```
 
